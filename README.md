@@ -112,34 +112,33 @@ The maximum borrowing limit is determined by the value of the supplied collatera
 
 <ins>The following are known issues and therefore are out of scope:</ins>
 
-  - Borrowing rewards for markets where a reward speed is not set do not accrue without a user calling claim (or someone calling claimBehalf).
-  - When setting reward speed = 0 and turning it back on for a market, rewards will accrue as if the new rate was always on.
-  - Assets which are supplied which a user hasn’t called ‘enterMarkets’ for can still be seized. This is working as designed.
-  - New markets must be added with no collateral factor, and some small amount of the collateral token supply must be burned in order to avoid market manipulation. This is a known issue.
- - **Wormhole dependency**: If wormhole goes offline, or pauses their relayer or wormhole core contracts, the Multichain Governor and Vote Collector will not be able to function. This is because the Multichain Governor passes messages to the Wormhole contract, and the Vote Collector receives messages from the Wormhole Relayer. If Wormhole is offline, on either chain, the system is considered broken and will not function.
- -  If users have proposals in flight, and the max user live proposals variable is updated to be less than its current value, the system invariant `live proposals <= maxUserLiveProposals` can be temporarily violated.
- - Quorum can be updated to zero, and if it is, then a proposal with a single for
+- Borrowing rewards for markets where a reward speed is not set do not accrue without a user calling claim (or someone calling claimBehalf).
+- When setting reward speed = 0 and turning it back on for a market, rewards will accrue as if the new rate was always on.
+- Assets which are supplied which a user hasn’t called ‘enterMarkets’ for can still be seized. This is working as designed.
+- New markets must be added with no collateral factor, and some small amount of the collateral token supply must be burned in order to avoid market manipulation. This is a known issue.
+- **Wormhole dependency**: If wormhole goes offline, or pauses their relayer or wormhole core contracts, the Multichain Governor and Vote Collector will not be able to function. This is because the Multichain Governor passes messages to the Wormhole contract, and the Vote Collector receives messages from the Wormhole Relayer. If Wormhole is offline, on either chain, the system is considered broken and will not function.
+-  If users have proposals in flight, and the max user live proposals variable is updated to be less than its current value, the system invariant `live proposals <= maxUserLiveProposals` can be temporarily violated.
+- Quorum can be updated to zero, and if it is, then a proposal with a single for
 vote can pass.
- - Setting too high of a quorum also means that a proposal is unlikely to ever be able to pass. This is because the system will not be able to reach quorum, and all proposals will go to the `Defeated` state.
- - Gas limit can be updated through a governance proposal, and if an external chain has their opcodes repriced higher, and the governance contract does not update its gas limit, then the system can be broken. This is because the system will not be able to process any transactions on the external chain, and the system will be unable to process any governance proposals. To mitigate this, the governor would use the break glass guardian to recover system ownership. Alternatively, a governance proposal could occur on Moonbeam to update the gas limit. However, users on Base would not be able to participate until this vote passed and the proposal was bridged to Base.
+- Setting too high of a quorum also means that a proposal is unlikely to ever be able to pass. This is because the system will not be able to reach quorum, and all proposals will go to the `Defeated` state.
+- Gas limit can be updated through a governance proposal, and if an external chain has their opcodes repriced higher, and the governance contract does not update its gas limit, then the system can be broken. This is because the system will not be able to process any transactions on the external chain, and the system will be unable to process any governance proposals. To mitigate this, the governor would use the break glass guardian to recover system ownership. Alternatively, a governance proposal could occur on Moonbeam to update the gas limit. However, users on Base would not be able to participate until this vote passed and the proposal was bridged to Base.
 
- - Because this governance system straddles two chains, it is important that the timestamps on both chains are within one minute of each other to prevent issues around double voting. If an external chain has timestamps more than one minute behind Moonbeam, then a user could propose a change on Moonbeam, and then bridge their tokens to the external chain. This would mean once voting opened up, it would look like this user has double the voting power than they should have. This is because the system would register their votes on both Moonbeam and the external chain as valid.
- - If the Pause Guardian is malicious, they could wait for a governance proposal to grant another guardian the ability to pause the contract, then pause the contract, clearing this proposal from the active set of proposals. Then the community would need to wait 30 days before they could create, vote on and pass another proposal again.
- - If the vote collection contracts on other chains are malicious, they could prevent the Multichain Governor from executing proposals, or pass proposals that are failing by registering incorrect vote counts.
- - if Wormhole is paused or offline, the Multichain Governor will still be able to execute and pass proposals, however, users on other chains will not be able to submit or have their votes collected.
- - If Wormhole becomes malicious, it could register incorrect vote counts or prevent the Multichain Governor from executing proposals.
+- Because this governance system straddles two chains, it is important that the timestamps on both chains are within one minute of each other to prevent issues around double voting. If an external chain has timestamps more than one minute behind Moonbeam, then a user could propose a change on Moonbeam, and then bridge their tokens to the external chain. This would mean once voting opened up, it would look like this user has double the voting power than they should have. This is because the system would register their votes on both Moonbeam and the external chain as valid.
+- If the Pause Guardian is malicious, they could wait for a governance proposal to grant another guardian the ability to pause the contract, then pause the contract, clearing this proposal from the active set of proposals. Then the community would need to wait 30 days before they could create, vote on and pass another proposal again.
+- If the vote collection contracts on other chains are malicious, they could prevent the Multichain Governor from executing proposals, or pass proposals that are failing by registering incorrect vote counts.
+- if Wormhole is paused or offline, the Multichain Governor will still be able to execute and pass proposals, however, users on other chains will not be able to submit or have their votes collected.
+- If Wormhole becomes malicious, it could register incorrect vote counts or prevent the Multichain Governor from executing proposals.
 
- - Approved calldata is correctly set for the Break Glass Guardian. Incorrect calldata could allow the Break Glass Guardian to call any function on any contract. Side effects of incorrect configuration include but are not limited to:
-   - Complete loss of governance abilities on both Base and or Moonbeam
-     deployments
-   - Setting of incorrect oracle data
-   - Arbitrary changes to governance parameters
- - The block timestamp does not differ by more than 45 seconds between Moonbeam and the external chain:
-   - At a larger time difference than 45 seconds, the vote collection contract is at risk of allowing users to register double votes by first voting on Moonbeam, and then bridging to and voting on an external chain.
- - The Wormhole bridge is live and working properly.
-   - If Wormhole is paused or offline, the Vote Collection contract will still be able to collect votes, however, votes will not be able to be sent to the Multichain Governor.
-   - If Wormhole becomes malicious, it could prevent the Vote Collection contract from collecting votes by blocking a new valid proposal from being registered.
- - No bounties will be paid for issues that arise from a governor turning malicious. Instead, the researcher must demonstrate how the code is vulnerable without using known issues and provide a working PoC of the exploit to demonstrate this vulnerability.
+- Approved calldata is correctly set for the Break Glass Guardian. Incorrect calldata could allow the Break Glass Guardian to call any function on any contract. Side effects of incorrect configuration include but are not limited to:
+- Complete loss of governance abilities on both Base and or Moonbeam deployments
+- Setting of incorrect oracle data
+- Arbitrary changes to governance parameters
+- The block timestamp does not differ by more than 45 seconds between Moonbeam and the external chain:
+- At a larger time difference than 45 seconds, the vote collection contract is at risk of allowing users to register double votes by first voting on Moonbeam, and then bridging to and voting on an external chain.
+- The Wormhole bridge is live and working properly.
+- If Wormhole is paused or offline, the Vote Collection contract will still be able to collect votes, however, votes will not be able to be sent to the Multichain Governor.
+- If Wormhole becomes malicious, it could prevent the Vote Collection contract from collecting votes by blocking a new valid proposal from being registered.
+- No bounties will be paid for issues that arise from a governor turning malicious. Instead, the researcher must demonstrate how the code is vulnerable without using known issues and provide a working PoC of the exploit to demonstrate this vulnerability.
 
 ### Out of scope
 
