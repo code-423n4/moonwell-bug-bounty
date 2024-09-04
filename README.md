@@ -112,6 +112,7 @@ The maximum borrowing limit is determined by the value of the supplied collatera
 
 <ins>The following are known issues and therefore are out of scope:</ins>
 
+- If the pause duration for xWELL is updated to a longer duration after the contract is paused, there is the possibility that this pauses the contract further if the guardian is not kicked, or the guardian does not unpause. This is a known issue.
 - Borrowing rewards for markets where a reward speed is not set do not accrue without a user calling claim (or someone calling claimBehalf).
 - When setting reward speed = 0 and turning it back on for a market, rewards will accrue as if the new rate was always on.
 - Assets which are supplied which a user hasn’t called ‘enterMarkets’ for can still be seized. This is working as designed.
