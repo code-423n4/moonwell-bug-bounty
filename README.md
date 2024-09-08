@@ -2,7 +2,6 @@
 
 - Max Critical Payout: $250,000 USDC/USDT
 - High Severity Payout: $15,000 - $20,000 USDC/USDT
-- Medium Severity Payout: $1,000 USDC/USDT
 
 The payout for smart contract vulnerabilities is dependent on the amount of funds at risk due to the vulnerability, which will be determined by the maximum value of funds at risk in the contract(s) that are impacted on the date of submission of the report.
 
