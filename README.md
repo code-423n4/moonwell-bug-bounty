@@ -77,11 +77,11 @@ The payout for smart contract vulnerabilities depends on the amount of funds at 
 
 The following ratio will apply to the smart contract vulnerabilities payouts:
 
-Less than $5,000,000 - 10% of bounty for that category
-Between $5,000,000 and $10,000,000 - 25%
-Between $10,000,000 and $50,000,000 - 50%
-Between $50,000,000 and $250,000,000 - 75%
-Above $250,000,000 - 100%
+- Less than $5,000,000 - 10% of bounty for that category
+- Between $5,000,000 and $10,000,000 - 25%
+- Between $10,000,000 and $50,000,000 - 50%
+- Between $50,000,000 and $250,000,000 - 75%
+- Above $250,000,000 - 100%
 
 ## Smart Contracts in Scope
 
