@@ -1,39 +1,128 @@
-# Moonwell Bug Bounty
+# Welcome to your bounty repo
 
-- Max Critical Payout: $250,000 USDC/USDT
-- High Severity Payout: $15,000 - $20,000 USDC/USDT
+This file contains information around how to set-up your README.md and prepare for our collaboration.
 
-The payout for smart contract vulnerabilities is dependent on the amount of funds at risk due to the vulnerability, which will be determined by the maximum value of funds at risk in the contract(s) that are impacted on the date of submission of the report.
+**Bug Bounties use two repos**:
 
-The following ratio will apply to the payouts for smart contract vulnerabilities, based on the maximum value at risk on the date of submission:
+- a bug bounty repo (this one), which is used for scoping your bug bounty and for providing information to wardens
+- a submissions repo, where issues are submitted
 
-- Less than $5,000,000 - 10% of bounty for that category
-- Between $5,000,000 and $10,000,000 - 25%
-- Between $10,000,000 and $50,000,000 - 50%
-- Between $50,000,000 and $250,000,000 - 75%
-- Above $250,000,000 - 100%
+Ultimately, when we launch the bug bounty, this repo will be made public and will contain links to the in-scope files to be reviewed and all the information needed for bounty participants.
 
-## Project Overview
+**Action item for sponsors:**
 
-Moonwell is deployed on the Base, Optimism, Moonbeam, and Moonriver networks, all of which are Ethereum Virtual Machine (EVM) compatible. This compatibility ensures that a broad spectrum of wallets can support Moonwell.
+- [ ] Modify the contents of this README.md file. Describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing.
 
-Moonwell enables users to lend their assets in single-sided liquidity pools, also known as money markets, and start earning a variable interest rate. Lending your digital assets on Moonwell is also the first step one must take before being able to Borrow other assets on Moonwell. 
+# [Project] Bug Bounty
 
-The protocol allows users to leverage or "collateralize" their digital assets to borrow other assets. By supplying assets to Moonwell, users can obtain an over-collateralized loan(s). 
+[⚡️**Project:** Please add award levels below:]
 
-The maximum borrowing limit is determined by the value of the supplied collateral and the parameters set by Moonwell Governance.
+| Risk Score |  Payout |
+|------------|---------|
+| Critical | Up to USD $250 000 |
+| High| USD $15 000 - $20 000 |
+| Medium | USD $1,000 - $5,000 Gratuity range|
+
+## Background on Moonwell
+
+Moonwell is an open lending, borrowing, and decentralized finance protocol built on Base, Optimism, Moonbeam and Moonriver. Moonwell's multichain design brings the world onchain with simple, yet powerful financial tools. This bug bounty program is focused on their smart contracts, website and app with a focus on preventing:
+- Loss of protocol or user funds
+- Smart contract vulnerabilities
+- Denial of service issues
+- Infrastructure vulnerabilities
+- Social media administrative control breaches
+
+All issues reported in past audits are out of scope: https://docs.moonwell.fi/moonwell/protocol-information/audits 
+
+### What Is [⚡️ Insert Project Name]?
+
+[⚡️ **Project**: Add a short overview of the project here.]
+
+### How Does It Work?
+
+[⚡️ **Project**: Add a high-level technical overview of the project here]
 
 ### Further Technical Resources & Links
 
-- **Previous audits:** [Link](https://docs.moonwell.fi/moonwell/protocol-information/audits)
-- **Documentation:** Our system documentation, subject to change. [Link](https://docs.moonwell.fi/moonwell)
-- **Website:** https://moonwell.fi
+[⚡️ **Project**: Please fill out the following information] 
+
+- **Moonwell Docs**: Our system documentation, subject to change. [Link](https://docs.moonwell.fi/moonwell)
+- **Moonwell Previous Audits:** Our previous audits - [Link](https://docs.moonwell.fi/moonwell/protocol-information/audits )
+- **Moonwell Website**: [Link](https://moonwell.fi)
 - **Twitter:** [@MoonwellDefi](https://x.com/MoonwellDeFi)
 - **Discord:** https://discord.gg/moonwellfii
 
+# Scope & Severity Criteria
 
-## Scope
+[⚡️ **Project**: Please insert any valid information around scope and severity criterias here]
 
+**Option 1:**
+
+| Severity level | Impact: High	| Impact: Medium | Impact: Low
+|------|-------| -------------- |-------------- |
+| Likelihood: High	 | Critical | High | - |
+| Likelihood: Medium | High | - | - |
+| Likelihood: Low    | - | - | - |
+
+**Option 2:**
+
+| Severity level | >[Add percentage]% TVL	| [Add percentage]% TVL | <[Add percentage]% TVL
+|------|-------| -------------- |-------------- |
+| Likelihood: High	 | Critical | High | - |
+| Likelihood: Medium | Critical | High or Critical | High |
+| Likelihood: Low    | High or Critical | High | - |
+
+
+The payout for smart contract vulnerabilities depends on the amount of funds at risk due to the vulnerability. This, will be determined by the maximum value of funds at risk in the impacted contract(s) at the time of report submission
+
+The following ratio will apply to the smart contract vulnerabilities payouts:
+
+Less than $5,000,000 - 10% of bounty for that category
+Between $5,000,000 and $10,000,000 - 25%
+Between $10,000,000 and $50,000,000 - 50%
+Between $50,000,000 and $250,000,000 - 75%
+Above $250,000,000 - 100%
+
+## Smart Contracts in Scope
+
+[⚡️ **Project**: Please fill in the Source and any scoping information that you deem necessary. In case you need more than one table, please copy the existing and multiply as needed]
+
+The following are known issues and therefore are out of scope:
+
+- Borrowing rewards for markets where a reward speed is not set do not accrue without a user calling claim (or someone calling claimBehalf).
+- When setting reward speed = 0 and turning it back on for a market, rewards will accrue as if the new rate was always on.
+- Assets which are supplied which a user hasn’t called ‘enterMarkets’ for can still be seized. This is working as designed.
+- New markets must be added with no collateral factor, and some small amount of the collateral token supply must be burned in order to avoid market manipulation. This is a known issue.
+- Wormhole dependency: If wormhole goes offline, or pauses their relayer or wormhole core contracts, the Multichain Governor and Vote Collector will not be able to function. This is because the Multichain Governor passes messages to the Wormhole contract, and the Vote Collector receives messages from the Wormhole Relayer. If Wormhole is offline, on either chain, the system is considered broken and will not function.
+-  If users have proposals in flight, and the max user live proposals variable is updated to be less than its current value, the system invariant `live proposals <= maxUserLiveProposals` can be temporarily violated.
+- Quorum can be updated to zero, and if it is, then a proposal with a single for
+vote can pass.
+- Setting too high of a quorum also means that a proposal is unlikely to ever be able to pass. This is because the system will not be able to reach quorum, and all proposals will go to the `Defeated` state.
+- Gas limit can be updated through a governance proposal, and if an external chain has their opcodes repriced higher, and the governance contract does not update its gas limit, then the system can be broken. This is because the system will not be able to process any transactions on the external chain, and the system will be unable to process any governance proposals. To mitigate this, the governor would use the break glass guardian to recover system ownership. Alternatively, a governance proposal could occur on Moonbeam to update the gas limit. However, users on Base would not be able to participate until this vote passed and the proposal was bridged to Base.
+- Because thethis governance system straddles threetwo chains, it is important that the timestamps on allboth chains are within one minute of each other to prevent issues around double voting. If an external chain has timestamps more than one minute behind Moonbeam, then a user could propose a change on Moonbeam, and then bridge their tokens to the external chain. This would mean once voting opened up, it would look like this user has double the voting power than they should have. This is because the system would register their votes on both Moonbeam and the external chain as valid.
+- if the Pause Guardian is malicious, they could wait for a governance proposal to grant another guardian the ability to pause the contract, then pause the contract, clearing this proposal from the active set of proposals. Then the community would need to wait 30 days before they could create, vote on and pass another proposal again.
+- if the vote collection contracts on other chains are malicious, they could prevent the Multichain Governor from executing proposals, or pass proposals that are failing by registering incorrect vote counts.
+- if Wormhole is paused or offline, the Multichain Governor will still be able to execute and pass proposals, however, users on other chains will not be able to submit or have their votes collected.
+- if Wormhole becomes malicious, it could register incorrect vote counts or prevent the Multichain Governor from executing proposals.
+- Approved calldata is correctly set for the Break Glass Guardian. Incorrect calldata could allow the Break Glass Guardian to call any function on any contract. Side effects of incorrect configuration include but are not limited to:
+- complete loss of governance abilities on both Base, Optimism, and or Moonbeam deployments
+- setting of incorrect oracle data
+- arbitrary changes to governance parameters
+- The block timestamp does not differ by more than 45 seconds between Moonbeam and the external chain:
+- at a larger time difference than 45 seconds, the vote collection contract is at risk of allowing users to register double votes by first voting on Moonbeam, and then bridging to and voting on an external chain.
+- The Wormhole bridge is live and working properly.
+- if Wormhole becomes malicious, it could prevent the Vote Collection contract from collecting votes by blocking a new valid proposal from being registered.
+- if Wormhole is paused or offline, the Vote Collection contract will still be able to collect votes, however, votes will not be able to be sent to the Multichain Governor.
+- No bounties will be paid for issues that arise from a governor turning malicious. Instead, the researcher must demonstrate how the code is vulnerable without using known issues and provide a working PoC of the exploit to demonstrate this vulnerability.
+- Temporal Governor on Base cannot receive raw ether as it has no payable fallback function. This means reserves cannot be sent to it from the ETH market. This is a known issue.
+
+
+Rewards for critical smart contract vulnerabilities are further capped at 10% of economic damage, with the main consideration being the funds affected in addition to PR and brand considerations, at the discretion of the team. However, there is a minimum reward of USD $100,000 for Critical bug reports. 
+
+Payouts are handled by the Moonwell team directly and are denominated in USD. At the team's discretion, payouts will be made in USDC or USDT. 
+
+
+**Source**: [Insert codebase source here]()
 
 | Contract | 
 | ----------- | 
@@ -105,48 +194,149 @@ The maximum borrowing limit is determined by the value of the supplied collatera
 | [Web/App](http://moonwell.fi) |
 | [Smart Contract - Governor](https://moonriver.moonscan.io/address/0x2BE2e230e89c59c8E20E633C524AD2De246e7370) | 
 | [Smart Contract - Timelock](https://moonriver.moonscan.io/address/0x04e6322D196E0E4cCBb2610dd8B8f2871E160bd7) |
+| [Smart Contract - Moonwell wrsETH](https://basescan.org/address/0xfC41B49d064Ac646015b459C522820DB9472F4B5) |
+| [Smart Contract - Well](https://optimistic.etherscan.io/address/0xA88594D404727625A9437C3f886C7643872296AE) |
+| [Smart Contract - Unitroller/Comptroller](https://optimistic.etherscan.io/address/0x8dFBb21dbD61af533092d54B293660CF77A30Ce2)|
+| [Smart Contract - MRD Proxy Admin](https://optimistic.etherscan.io/address/0x8568A675384d761f36eC269D695d6Ce4423cfaB1) |
+| [Smart Contract - Temporal Governor](https://optimistic.etherscan.io/address/0x17C9ba3fDa7EC71CcfD75f978Ef31E21927aFF3d)| 
+| [Smart Contract - Multi-Reward Distributor](https://optimistic.etherscan.io/address/0xF9524bfa18C19C3E605FbfE8DFd05C6e967574Aa) |
+| [Smart Contract - Moonwell weETH](https://optimistic.etherscan.io/address/0xb8051464C8c92209C92F3a4CD9C73746C4c3CFb3)|
+| [Smart Contract - Moonwell USDC](https://optimistic.etherscan.io/address/0x8E08617b0d66359D73Aa11E11017834C29155525) |
+| [Smart Contract - Moonwell USDT](https://optimistic.etherscan.io/address/0xa3A53899EE8f9f6E963437C5B3f805FEc538BF84) |
+| [Smart Contract - Moonwell DAI](https://optimistic.etherscan.io/address/0x3FE782C2Fe7668C2F1Eb313ACf3022a31feaD6B2) |
+| [Smart Contract - Moonwell wBTC](https://optimistic.etherscan.io/address/0x6e6CA598A06E609c913551B729a228B023f06fDB) |
+| [Smart Contract - Moonwell wETH](https://optimistic.etherscan.io/address/0xb4104C02BBf4E9be85AAa41a62974E4e28D59A33) |
+| [Smart Contract - Moonwell wstETH](https://optimistic.etherscan.io/address/0xbb3b1aB66eFB43B10923b87460c0106643B83f9d) |
+| [Smart Contract - Moonwell cbETH](https://optimistic.etherscan.io/address/0x95C84F369bd0251ca903052600A3C96838D78bA1) |
+| [Smart Contract - Moonwell cbETH](https://optimistic.etherscan.io/address/0x4c2E35E3eC4A0C82849637BC04A4609Dbe53d321) |
+| [Smart Contract - Moonwell VELO](https://optimistic.etherscan.io/address/0x866b838b97Ee43F2c818B3cb5Cc77A0dc22003Fc) |
+| [Smart Contract - Moonwell OP](https://optimistic.etherscan.io/address/0x9fc345a20541Bf8773988515c5950eD69aF01847) |
+| [Smart Contract - Moonwell wrsETH](https://basescan.org/address/0xfC41B49d064Ac646015b459C522820DB9472F4B5 ) |
+| [Smart Contract - Native WELL](https://optimistic.etherscan.io/address/0xA88594D404727625A9437C3f886C7643872296AE) |
+| [Smart Contract - Wormhole Bridge Adapter](https://optimistic.etherscan.io/address/0x734AbBCe07679C9A6B4Fe3bC16325e028fA6DbB7) |
+| [Smart Contract - Vote Collection](https://optimistic.etherscan.io/address/0x3C968481BE3ba1a99fed5f73dB2Ff51151037738) |
+| [Smart Contract - Ecosystem Reserve](https://optimistic.etherscan.io/address/0x966450Ee0757846963F17f7978a8A906e078EF4b) |
+| [Smart Contract - Ecosystem Reserve Controller](https://optimistic.etherscan.io/address/0x1D776f9dc5fb96a2B60862973d90418d684dEE1e) |
+| [Smart Contract - stkWELL](https://optimistic.etherscan.io/address/0xfB26A4947A38cb53e2D083c6490060CCCE7438c5) |
+
+**Impacts in Scope**
+
+Only the following impacts are accepted within this bug bounty program. All other impacts are not considered as in-scope, even if they affect something in the assets in scope table.
+
+**Critical**
+**Smart Contracts**
+- Any governance voting result manipulation
+- Direct theft of any user funds, whether at-rest or in-motion, other than unclaimed yield
+- Permanent freezing of funds
+- Economic attacks against the protocol
+
+**Websites and Apps**
+- Execute arbitrary system commands
+- Retrieve sensitive data/files from a running server such as /etc/shadow, database passwords, and blockchain keys(this does not include non-sensitive environment variables, open source code, or usernames)
+- Taking down the application/website
+- Taking state-modifying authenticated actions (with or without blockchain state interaction) on behalf of other users without any interaction by that user, such as, changing registration information, commenting, voting, making trades, withdrawals, etc.
+- Subdomain takeover with already-connected wallet interaction
+- Direct theft of user funds
+- Malicious interactions with an already-connected wallet such as modifying transaction arguments or parameters, substituting contract addresses, submitting malicious transactions 
+
+**High**
+**Smart Contracts**
+- Theft of unclaimed yield
+- Permanent freezing of unclaimed yield
+- Temporary freezing of funds - longer than 30 days
+
+**Websites and Apps**
+- DOM-based or reflective XSS issues in the frontend
+- Content redressing issues in the frontend
+- Cross-site request forgeries leading to bad security impacts for end users
+- Improperly disclosing confidential user information such as email address, phone number, physical address, etc.
+- Domain takeover for moonwell.fi or app.moonwell.fiSubdomain takeover 
+
+**Medium**
+**Smart Contracts**
+- Block stuffing for profit
+- Griefing (e.g. no profit motive for an attacker, but damage to the users or the protocol)
+- Theft of gas
+- Unbounded gas consumption
+
+**Websites and Apps**
+N/A
+Low	
+
+**Websites and Apps**
+N/A
+These accepted impacts are then based on the severity classification system of this bug bounty program. When submitting a bug report, please select the severity level you feel best corresponds to the severity classification system as long as the impact itself is one of the listed items. 
 
 
-### Publicly Known Issues
+## Out-of-Scope
 
-<ins>The following are known issues and therefore are out of scope:</ins>
+### Known Issues
 
-- If the pause duration for xWELL is updated to a longer duration after the contract is paused, there is the possibility that this pauses the contract further if the guardian is not kicked, or the guardian does not unpause. This is a known issue.
-- Borrowing rewards for markets where a reward speed is not set do not accrue without a user calling claim (or someone calling claimBehalf).
-- When setting reward speed = 0 and turning it back on for a market, rewards will accrue as if the new rate was always on.
-- Assets which are supplied which a user hasn’t called ‘enterMarkets’ for can still be seized. This is working as designed.
-- New markets must be added with no collateral factor, and some small amount of the collateral token supply must be burned in order to avoid market manipulation. This is a known issue.
-- **Wormhole dependency**: If wormhole goes offline, or pauses their relayer or wormhole core contracts, the Multichain Governor and Vote Collector will not be able to function. This is because the Multichain Governor passes messages to the Wormhole contract, and the Vote Collector receives messages from the Wormhole Relayer. If Wormhole is offline, on either chain, the system is considered broken and will not function.
--  If users have proposals in flight, and the max user live proposals variable is updated to be less than its current value, the system invariant `live proposals <= maxUserLiveProposals` can be temporarily violated.
-- Quorum can be updated to zero, and if it is, then a proposal with a single for
-vote can pass.
-- Setting too high of a quorum also means that a proposal is unlikely to ever be able to pass. This is because the system will not be able to reach quorum, and all proposals will go to the `Defeated` state.
-- Gas limit can be updated through a governance proposal, and if an external chain has their opcodes repriced higher, and the governance contract does not update its gas limit, then the system can be broken. This is because the system will not be able to process any transactions on the external chain, and the system will be unable to process any governance proposals. To mitigate this, the governor would use the break glass guardian to recover system ownership. Alternatively, a governance proposal could occur on Moonbeam to update the gas limit. However, users on Base would not be able to participate until this vote passed and the proposal was bridged to Base.
-
-- Because this governance system straddles two chains, it is important that the timestamps on both chains are within one minute of each other to prevent issues around double voting. If an external chain has timestamps more than one minute behind Moonbeam, then a user could propose a change on Moonbeam, and then bridge their tokens to the external chain. This would mean once voting opened up, it would look like this user has double the voting power than they should have. This is because the system would register their votes on both Moonbeam and the external chain as valid.
-- If the Pause Guardian is malicious, they could wait for a governance proposal to grant another guardian the ability to pause the contract, then pause the contract, clearing this proposal from the active set of proposals. Then the community would need to wait 30 days before they could create, vote on and pass another proposal again.
-- If the vote collection contracts on other chains are malicious, they could prevent the Multichain Governor from executing proposals, or pass proposals that are failing by registering incorrect vote counts.
-- if Wormhole is paused or offline, the Multichain Governor will still be able to execute and pass proposals, however, users on other chains will not be able to submit or have their votes collected.
-- If Wormhole becomes malicious, it could register incorrect vote counts or prevent the Multichain Governor from executing proposals.
-
-- Approved calldata is correctly set for the Break Glass Guardian. Incorrect calldata could allow the Break Glass Guardian to call any function on any contract. Side effects of incorrect configuration include but are not limited to:
-- Complete loss of governance abilities on both Base and or Moonbeam deployments
-- Setting of incorrect oracle data
-- Arbitrary changes to governance parameters
-- The block timestamp does not differ by more than 45 seconds between Moonbeam and the external chain:
-- At a larger time difference than 45 seconds, the vote collection contract is at risk of allowing users to register double votes by first voting on Moonbeam, and then bridging to and voting on an external chain.
-- The Wormhole bridge is live and working properly.
-- If Wormhole is paused or offline, the Vote Collection contract will still be able to collect votes, however, votes will not be able to be sent to the Multichain Governor.
-- If Wormhole becomes malicious, it could prevent the Vote Collection contract from collecting votes by blocking a new valid proposal from being registered.
-- No bounties will be paid for issues that arise from a governor turning malicious. Instead, the researcher must demonstrate how the code is vulnerable without using known issues and provide a working PoC of the exploit to demonstrate this vulnerability.
-
-### Out of scope
-
-All issues reported in past audits are out of scope: https://docs.moonwell.fi/moonwell/protocol-information/audits 
+Bug reports covering previously-discovered bugs (listed below) are not eligible for a reward within this program. This includes known issues that the project is aware of but has consciously decided not to “fix”, necessary code changes, or any implemented operational mitigating procedures that can lessen potential risk. Every issue opened in the repo, closed PRs, previous contests and audits are out of scope.
 
 
-## Miscellaneous
+### Previous Audits
 
-The Lunar Technology Foundation requires KYC to be completed by all researchers submitting a report before a bounty can be paid. The information needed is an ID scan along with a selfie to verify identity.
+All issues reported in past audits are out of scope and are not eligible for a reward https://docs.moonwell.fi/moonwell/protocol-information/audits 
+
+
+### Specific Types of Issues
+
+The following vulnerabilities are excluded from the rewards for this bug bounty program:
+
+- Attacks that the reporter has already exploited themselves, leading to damage
+- Attacks requiring access to leaked keys/credentials
+- Attacks requiring access to privileged addresses (governance, strategist)
+- 3rd party services (AWS, Datadog, etc)
+
+  **Smart Contracts and Blockchain**
+  
+- Incorrect data supplied by third party oracles
+- Not to exclude oracle manipulation/flash loan attacks
+- Basic economic governance attacks (e.g. 51% attack)
+- Lack of liquidity
+- Best practice critiques
+- Sybil attacks
+- Centralization risks
+
+No bounties will be paid for issues that arise from a governor turning malicious. Instead, the researcher must demonstrate how the code is vulnerable without using known issues and provide a working PoC of the exploit to demonstrate this vulnerability. Reports for critical and high severity issues will require the researcher to write a PoC to receive a payout on all critical or high severity issues.
+Known issues are out of scope, such as double voting assuming block timestamps between chains drift far enough apart
+
+**Websites and Apps**
+
+- Theoretical vulnerabilities without any proof or demonstration
+- Captcha bypass using OCR
+- CSRF with no security impact (logout CSRF, change language, etc.)
+- Missing HTTP Security Headers (such as X-FRAME-OPTIONS) or cookie security flags (such as “httponly”)
+- Server-side information disclosure such as IPs, server names, and most stack traces
+- Vulnerabilities used to enumerate or confirm the existence of users or tenants
+- Vulnerabilities requiring unlikely user actions
+- URL Redirects (unless combined with another vulnerability to produce a more severe vulnerability)
+- Lack of SSL/TLS best practices
+- DDoS vulnerabilities
+- Attacks requiring privileged access from within the organization
+- Feature requests
+- Best practices
+
+The following activities are prohibited by this bug bounty program:
+
+- Any testing with mainnet or public testnet contracts; all testing should be done on private testnets
+- Any testing with pricing oracles or third party smart contracts
+- Attempting phishing or other social engineering attacks against our employees and/or customers
+- Any testing with third party systems and applications (e.g. browser extensions) as well as websites (e.g. SSO providers, advertising networks)
+- Any denial of service attacks
+- Automated testing of services that generates significant amounts of traffic
+- Public disclosure of an unpatched vulnerability in an embargoed bounty
+
+
+# Additional Context
+
+### Trusted Roles
+
+[⚡️ **Project**: Please explain your protocol's trusted roles.]
+
+
+### Miscellaneous
+The Moonwell Foundation requires KYC and a sanctions screening to be completed by all researchers submitting a report before a bounty can be paid.
 
 Current and past contractors or employees of Lunar Labs, Solidity Labs and Moonwell Foundation are not eligible for any rewards from this bug bounty program.
