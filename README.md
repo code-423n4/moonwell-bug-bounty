@@ -223,8 +223,9 @@ Payouts are handled by the Moonwell team directly and are denominated in USD. At
 
 Only the following impacts are accepted within this bug bounty program. All other impacts are not considered as in-scope, even if they affect something in the assets in scope table.
 
-**Critical**
+
 **Smart Contracts**
+- **Critical**
 - Any governance voting result manipulation
 - Direct theft of any user funds, whether at-rest or in-motion, other than unclaimed yield
 - Permanent freezing of funds
@@ -239,8 +240,8 @@ Only the following impacts are accepted within this bug bounty program. All othe
 - Direct theft of user funds
 - Malicious interactions with an already-connected wallet such as modifying transaction arguments or parameters, substituting contract addresses, submitting malicious transactions 
 
-**High**
 **Smart Contracts**
+- **High**
 - Theft of unclaimed yield
 - Permanent freezing of unclaimed yield
 - Temporary freezing of funds - longer than 30 days
@@ -252,8 +253,8 @@ Only the following impacts are accepted within this bug bounty program. All othe
 - Improperly disclosing confidential user information such as email address, phone number, physical address, etc.
 - Domain takeover for moonwell.fi or app.moonwell.fiSubdomain takeover 
 
-**Medium**
 **Smart Contracts**
+- **Medium**
 - Block stuffing for profit
 - Griefing (e.g. no profit motive for an attacker, but damage to the users or the protocol)
 - Theft of gas
