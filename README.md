@@ -260,11 +260,11 @@ Only the following impacts are accepted within this bug bounty program. All othe
 - Unbounded gas consumption
 
 **Websites and Apps**
-N/A
-Low	
+- N/A
+- Low	
 
 **Websites and Apps**
-N/A
+- N/A
 These accepted impacts are then based on the severity classification system of this bug bounty program. When submitting a bug report, please select the severity level you feel best corresponds to the severity classification system as long as the impact itself is one of the listed items. 
 
 
