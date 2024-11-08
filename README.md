@@ -44,8 +44,6 @@ Moonwell is an open lending, borrowing, and decentralized finance protocol built
 - Infrastructure vulnerabilities
 - Social media administrative control breaches
 
-All issues reported in past audits are out of scope: https://docs.moonwell.fi/moonwell/protocol-information/audits 
-
 ### Further Technical Resources & Links
 
 [⚡️ **Project**: Please fill out the following information] 
@@ -61,12 +59,7 @@ All issues reported in past audits are out of scope: https://docs.moonwell.fi/mo
 [⚡️ **Project**: Please insert any valid information around scope and severity criterias here]
 
 **Websites and Applications**
-
-- DOM-based or reflective XSS issues in the frontend
-- Content redressing issues in the frontend
-- Cross-site request forgeries leading to bad security impacts for end users
-- Improperly disclosing confidential user information such as email address, phone number, physical address, etc.
-- Domain takeover for moonwell.fi or app.moonwell.fiSubdomain takeover 
+- Domain takeover for moonwell.fi or app.moonwell.fi Subdomain takeover 
 
 The payout for smart contract vulnerabilities depends on the amount of funds at risk due to the vulnerability. This, will be determined by the maximum value of funds at risk in the impacted contract(s) at the time of report submission
 
@@ -87,8 +80,6 @@ Only the following impacts are accepted within this bug bounty program. All othe
 Rewards for critical smart contract vulnerabilities are further capped at 10% of economic damage, with the main consideration being the funds affected in addition to PR and brand considerations, at the discretion of the team. However, there is a minimum reward of USD $100,000 for Critical bug reports. 
 
 Payouts are handled by the Moonwell team directly and are denominated in USD. At the team's discretion, payouts will be made in USDC or USDT. 
-
-**Source**: [Insert codebase source here]()
 
 | Contract | 
 | ----------- | 
@@ -224,7 +215,6 @@ vote can pass.
 ### Previous Audits
 
 All issues reported in past audits are out of scope and are not eligible for a reward https://docs.moonwell.fi/moonwell/protocol-information/audits 
-
 
 ### Specific Types of Issues
 
