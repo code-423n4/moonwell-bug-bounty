@@ -1,5 +1,10 @@
 # Welcome to your bounty repo
 
+**Quick Links:**
+- [Judging for C4 Bug Bounties](https://docs.code4rena.com/awarding/judging-criteria/bounty-judging)
+- [Criteria for C4 Bug Bounties](https://docs.code4rena.com/awarding/judging-criteria/bounty-criteria)
+
+
 This file contains information around how to set-up your README.md and prepare for our collaboration.
 
 **Bug Bounties use two repos**:
@@ -214,7 +219,10 @@ vote can pass.
 
 ### Previous Audits
 
-All issues reported in past audits are out of scope and are not eligible for a reward https://docs.moonwell.fi/moonwell/protocol-information/audits 
+All issues reported in past audits are out of scope and are not eligible for a reward https://docs.moonwell.fi/moonwell/protocol-information/audits.
+
+No bounties will be paid for issues that arise from a governor turning malicious. Instead, the researcher must demonstrate how the code is vulnerable without using known issues and provide a working PoC of the exploit to demonstrate this vulnerability. Reports for critical and high severity issues will require the researcher to write a PoC to receive a payout on all critical or high severity issues.
+Known issues are out of scope, such as double voting assuming block timestamps between chains drift far enough apart
 
 ### Specific Types of Issues
 
@@ -225,18 +233,6 @@ The following vulnerabilities are excluded from the rewards for this bug bounty 
 - Attacks requiring access to privileged addresses (governance, strategist)
 - 3rd party services (AWS, Datadog, etc)
 
-  **Smart Contracts and Blockchain**
-  
-- Incorrect data supplied by third party oracles
-- Not to exclude oracle manipulation/flash loan attacks
-- Basic economic governance attacks (e.g. 51% attack)
-- Lack of liquidity
-- Best practice critiques
-- Sybil attacks
-- Centralization risks
-
-No bounties will be paid for issues that arise from a governor turning malicious. Instead, the researcher must demonstrate how the code is vulnerable without using known issues and provide a working PoC of the exploit to demonstrate this vulnerability. Reports for critical and high severity issues will require the researcher to write a PoC to receive a payout on all critical or high severity issues.
-Known issues are out of scope, such as double voting assuming block timestamps between chains drift far enough apart
 
 **Websites and Apps**
 
