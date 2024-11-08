@@ -30,9 +30,9 @@ Ultimately, when we launch the bug bounty, this repo will be made public and wil
 | Risk Score |  Payout |
 |------------|---------|
 | Critical | Up to USD $25 000 |
-| High| USD $10 000 |
+| High| USD $10 000            |
 
-All web/app bug reports must come with a PoC with an end-effect impacting an asset-in-scope in order to be considered for a reward. Explanations and statements are not accepted as PoC and code is required. An invoice is required for payment to be made.
+All web/app bug reports must include a PoC with an end-effect impacting an asset in scope in order to be considered for a reward. Explanations and statements are not accepted as PoC and code are required. An invoice is required for the payment to be made.
 
 
 ## Background on Moonwell
@@ -45,14 +45,6 @@ Moonwell is an open lending, borrowing, and decentralized finance protocol built
 - Social media administrative control breaches
 
 All issues reported in past audits are out of scope: https://docs.moonwell.fi/moonwell/protocol-information/audits 
-
-### What Is [⚡️ Insert Project Name]?
-
-[⚡️ **Project**: Add a short overview of the project here.]
-
-### How Does It Work?
-
-[⚡️ **Project**: Add a high-level technical overview of the project here]
 
 ### Further Technical Resources & Links
 
@@ -68,22 +60,13 @@ All issues reported in past audits are out of scope: https://docs.moonwell.fi/mo
 
 [⚡️ **Project**: Please insert any valid information around scope and severity criterias here]
 
-**Option 1:**
+**Websites and Applications**
 
-| Severity level | Impact: High	| Impact: Medium | Impact: Low
-|------|-------| -------------- |-------------- |
-| Likelihood: High	 | Critical | High | - |
-| Likelihood: Medium | High | - | - |
-| Likelihood: Low    | - | - | - |
-
-**Option 2:**
-
-| Severity level | >[Add percentage]% TVL	| [Add percentage]% TVL | <[Add percentage]% TVL
-|------|-------| -------------- |-------------- |
-| Likelihood: High	 | Critical | High | - |
-| Likelihood: Medium | Critical | High or Critical | High |
-| Likelihood: Low    | High or Critical | High | - |
-
+- DOM-based or reflective XSS issues in the frontend
+- Content redressing issues in the frontend
+- Cross-site request forgeries leading to bad security impacts for end users
+- Improperly disclosing confidential user information such as email address, phone number, physical address, etc.
+- Domain takeover for moonwell.fi or app.moonwell.fiSubdomain takeover 
 
 The payout for smart contract vulnerabilities depends on the amount of funds at risk due to the vulnerability. This, will be determined by the maximum value of funds at risk in the impacted contract(s) at the time of report submission
 
@@ -95,44 +78,15 @@ The following ratio will apply to the smart contract vulnerabilities payouts:
 - Between $50,000,000 and $250,000,000 - 75%
 - Above $250,000,000 - 100%
 
+Only the following impacts are accepted within this bug bounty program. All other impacts are not considered as in-scope, even if they affect something in the assets in scope table.
+
 ## Smart Contracts in Scope
 
 [⚡️ **Project**: Please fill in the Source and any scoping information that you deem necessary. In case you need more than one table, please copy the existing and multiply as needed]
 
-The following are known issues and therefore are out of scope:
-
-- Borrowing rewards for markets where a reward speed is not set do not accrue without a user calling claim (or someone calling claimBehalf).
-- When setting reward speed = 0 and turning it back on for a market, rewards will accrue as if the new rate was always on.
-- Assets which are supplied which a user hasn’t called ‘enterMarkets’ for can still be seized. This is working as designed.
-- New markets must be added with no collateral factor, and some small amount of the collateral token supply must be burned in order to avoid market manipulation. This is a known issue.
-- Wormhole dependency: If wormhole goes offline, or pauses their relayer or wormhole core contracts, the Multichain Governor and Vote Collector will not be able to function. This is because the Multichain Governor passes messages to the Wormhole contract, and the Vote Collector receives messages from the Wormhole Relayer. If Wormhole is offline, on either chain, the system is considered broken and will not function.
--  If users have proposals in flight, and the max user live proposals variable is updated to be less than its current value, the system invariant `live proposals <= maxUserLiveProposals` can be temporarily violated.
-- Quorum can be updated to zero, and if it is, then a proposal with a single for
-vote can pass.
-- Setting too high of a quorum also means that a proposal is unlikely to ever be able to pass. This is because the system will not be able to reach quorum, and all proposals will go to the `Defeated` state.
-- Gas limit can be updated through a governance proposal, and if an external chain has their opcodes repriced higher, and the governance contract does not update its gas limit, then the system can be broken. This is because the system will not be able to process any transactions on the external chain, and the system will be unable to process any governance proposals. To mitigate this, the governor would use the break glass guardian to recover system ownership. Alternatively, a governance proposal could occur on Moonbeam to update the gas limit. However, users on Base would not be able to participate until this vote passed and the proposal was bridged to Base.
-- Because thethis governance system straddles threetwo chains, it is important that the timestamps on allboth chains are within one minute of each other to prevent issues around double voting. If an external chain has timestamps more than one minute behind Moonbeam, then a user could propose a change on Moonbeam, and then bridge their tokens to the external chain. This would mean once voting opened up, it would look like this user has double the voting power than they should have. This is because the system would register their votes on both Moonbeam and the external chain as valid.
-- if the Pause Guardian is malicious, they could wait for a governance proposal to grant another guardian the ability to pause the contract, then pause the contract, clearing this proposal from the active set of proposals. Then the community would need to wait 30 days before they could create, vote on and pass another proposal again.
-- if the vote collection contracts on other chains are malicious, they could prevent the Multichain Governor from executing proposals, or pass proposals that are failing by registering incorrect vote counts.
-- if Wormhole is paused or offline, the Multichain Governor will still be able to execute and pass proposals, however, users on other chains will not be able to submit or have their votes collected.
-- if Wormhole becomes malicious, it could register incorrect vote counts or prevent the Multichain Governor from executing proposals.
-- Approved calldata is correctly set for the Break Glass Guardian. Incorrect calldata could allow the Break Glass Guardian to call any function on any contract. Side effects of incorrect configuration include but are not limited to:
-- complete loss of governance abilities on both Base, Optimism, and or Moonbeam deployments
-- setting of incorrect oracle data
-- arbitrary changes to governance parameters
-- The block timestamp does not differ by more than 45 seconds between Moonbeam and the external chain:
-- at a larger time difference than 45 seconds, the vote collection contract is at risk of allowing users to register double votes by first voting on Moonbeam, and then bridging to and voting on an external chain.
-- The Wormhole bridge is live and working properly.
-- if Wormhole becomes malicious, it could prevent the Vote Collection contract from collecting votes by blocking a new valid proposal from being registered.
-- if Wormhole is paused or offline, the Vote Collection contract will still be able to collect votes, however, votes will not be able to be sent to the Multichain Governor.
-- No bounties will be paid for issues that arise from a governor turning malicious. Instead, the researcher must demonstrate how the code is vulnerable without using known issues and provide a working PoC of the exploit to demonstrate this vulnerability.
-- Temporal Governor on Base cannot receive raw ether as it has no payable fallback function. This means reserves cannot be sent to it from the ETH market. This is a known issue.
-
-
 Rewards for critical smart contract vulnerabilities are further capped at 10% of economic damage, with the main consideration being the funds affected in addition to PR and brand considerations, at the discretion of the team. However, there is a minimum reward of USD $100,000 for Critical bug reports. 
 
 Payouts are handled by the Moonwell team directly and are denominated in USD. At the team's discretion, payouts will be made in USDC or USDT. 
-
 
 **Source**: [Insert codebase source here]()
 
@@ -231,61 +185,40 @@ Payouts are handled by the Moonwell team directly and are denominated in USD. At
 | [Smart Contract - Ecosystem Reserve Controller](https://optimistic.etherscan.io/address/0x1D776f9dc5fb96a2B60862973d90418d684dEE1e) |
 | [Smart Contract - stkWELL](https://optimistic.etherscan.io/address/0xfB26A4947A38cb53e2D083c6490060CCCE7438c5) |
 
-**Impacts in Scope**
-
-Only the following impacts are accepted within this bug bounty program. All other impacts are not considered as in-scope, even if they affect something in the assets in scope table.
-
-
-**Smart Contracts**
-- **Critical**
-- Any governance voting result manipulation
-- Direct theft of any user funds, whether at-rest or in-motion, other than unclaimed yield
-- Permanent freezing of funds
-- Economic attacks against the protocol
-
-**Websites and Apps**
-- Execute arbitrary system commands
-- Retrieve sensitive data/files from a running server such as /etc/shadow, database passwords, and blockchain keys(this does not include non-sensitive environment variables, open source code, or usernames)
-- Taking down the application/website
-- Taking state-modifying authenticated actions (with or without blockchain state interaction) on behalf of other users without any interaction by that user, such as, changing registration information, commenting, voting, making trades, withdrawals, etc.
-- Subdomain takeover with already-connected wallet interaction
-- Direct theft of user funds
-- Malicious interactions with an already-connected wallet such as modifying transaction arguments or parameters, substituting contract addresses, submitting malicious transactions 
-
-**Smart Contracts**
-- **High**
-- Theft of unclaimed yield
-- Permanent freezing of unclaimed yield
-- Temporary freezing of funds - longer than 30 days
-
-**Websites and Apps**
-- DOM-based or reflective XSS issues in the frontend
-- Content redressing issues in the frontend
-- Cross-site request forgeries leading to bad security impacts for end users
-- Improperly disclosing confidential user information such as email address, phone number, physical address, etc.
-- Domain takeover for moonwell.fi or app.moonwell.fiSubdomain takeover 
-
-**Smart Contracts**
-- **Medium**
-- Block stuffing for profit
-- Griefing (e.g. no profit motive for an attacker, but damage to the users or the protocol)
-- Theft of gas
-- Unbounded gas consumption
-
-**Websites and Apps**
-- N/A
-- Low	
-
-**Websites and Apps**
-- N/A
-These accepted impacts are then based on the severity classification system of this bug bounty program. When submitting a bug report, please select the severity level you feel best corresponds to the severity classification system as long as the impact itself is one of the listed items. 
-
-
 ## Out-of-Scope
 
 ### Known Issues
 
 Bug reports covering previously-discovered bugs (listed below) are not eligible for a reward within this program. This includes known issues that the project is aware of but has consciously decided not to “fix”, necessary code changes, or any implemented operational mitigating procedures that can lessen potential risk. Every issue opened in the repo, closed PRs, previous contests and audits are out of scope.
+
+The following are known issues and therefore are out of scope:
+
+- Borrowing rewards for markets where a reward speed is not set do not accrue without a user calling claim (or someone calling claimBehalf).
+- When setting reward speed = 0 and turning it back on for a market, rewards will accrue as if the new rate was always on.
+- Assets which are supplied which a user hasn’t called ‘enterMarkets’ for can still be seized. This is working as designed.
+- New markets must be added with no collateral factor, and some small amount of the collateral token supply must be burned in order to avoid market manipulation. This is a known issue.
+- Wormhole dependency: If wormhole goes offline, or pauses their relayer or wormhole core contracts, the Multichain Governor and Vote Collector will not be able to function. This is because the Multichain Governor passes messages to the Wormhole contract, and the Vote Collector receives messages from the Wormhole Relayer. If Wormhole is offline, on either chain, the system is considered broken and will not function.
+-  If users have proposals in flight, and the max user live proposals variable is updated to be less than its current value, the system invariant `live proposals <= maxUserLiveProposals` can be temporarily violated.
+- Quorum can be updated to zero, and if it is, then a proposal with a single for
+vote can pass.
+- Setting too high of a quorum also means that a proposal is unlikely to ever be able to pass. This is because the system will not be able to reach quorum, and all proposals will go to the `Defeated` state.
+- Gas limit can be updated through a governance proposal, and if an external chain has their opcodes repriced higher, and the governance contract does not update its gas limit, then the system can be broken. This is because the system will not be able to process any transactions on the external chain, and the system will be unable to process any governance proposals. To mitigate this, the governor would use the break glass guardian to recover system ownership. Alternatively, a governance proposal could occur on Moonbeam to update the gas limit. However, users on Base would not be able to participate until this vote passed and the proposal was bridged to Base.
+- Because thethis governance system straddles threetwo chains, it is important that the timestamps on allboth chains are within one minute of each other to prevent issues around double voting. If an external chain has timestamps more than one minute behind Moonbeam, then a user could propose a change on Moonbeam, and then bridge their tokens to the external chain. This would mean once voting opened up, it would look like this user has double the voting power than they should have. This is because the system would register their votes on both Moonbeam and the external chain as valid.
+- if the Pause Guardian is malicious, they could wait for a governance proposal to grant another guardian the ability to pause the contract, then pause the contract, clearing this proposal from the active set of proposals. Then the community would need to wait 30 days before they could create, vote on and pass another proposal again.
+- if the vote collection contracts on other chains are malicious, they could prevent the Multichain Governor from executing proposals, or pass proposals that are failing by registering incorrect vote counts.
+- if Wormhole is paused or offline, the Multichain Governor will still be able to execute and pass proposals, however, users on other chains will not be able to submit or have their votes collected.
+- if Wormhole becomes malicious, it could register incorrect vote counts or prevent the Multichain Governor from executing proposals.
+- Approved calldata is correctly set for the Break Glass Guardian. Incorrect calldata could allow the Break Glass Guardian to call any function on any contract. Side effects of incorrect configuration include but are not limited to:
+- complete loss of governance abilities on both Base, Optimism, and or Moonbeam deployments
+- setting of incorrect oracle data
+- arbitrary changes to governance parameters
+- The block timestamp does not differ by more than 45 seconds between Moonbeam and the external chain:
+- at a larger time difference than 45 seconds, the vote collection contract is at risk of allowing users to register double votes by first voting on Moonbeam, and then bridging to and voting on an external chain.
+- The Wormhole bridge is live and working properly.
+- if Wormhole becomes malicious, it could prevent the Vote Collection contract from collecting votes by blocking a new valid proposal from being registered.
+- if Wormhole is paused or offline, the Vote Collection contract will still be able to collect votes, however, votes will not be able to be sent to the Multichain Governor.
+- No bounties will be paid for issues that arise from a governor turning malicious. Instead, the researcher must demonstrate how the code is vulnerable without using known issues and provide a working PoC of the exploit to demonstrate this vulnerability.
+- Temporal Governor on Base cannot receive raw ether as it has no payable fallback function. This means reserves cannot be sent to it from the ETH market. This is a known issue.
 
 
 ### Previous Audits
