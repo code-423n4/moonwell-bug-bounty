@@ -1,10 +1,5 @@
 # Welcome to your bounty repo
 
-**Quick Links:**
-- [Judging for C4 Bug Bounties](https://docs.code4rena.com/awarding/judging-criteria/bounty-judging)
-- [Criteria for C4 Bug Bounties](https://docs.code4rena.com/awarding/judging-criteria/bounty-criteria)
-
-
 This file contains information around how to set-up your README.md and prepare for our collaboration.
 
 **Bug Bounties use two repos**:
@@ -18,7 +13,7 @@ Ultimately, when we launch the bug bounty, this repo will be made public and wil
 
 - [ ] Modify the contents of this README.md file. Describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing.
 
-# [Project] Bug Bounty
+# [Moonwell] Bug Bounty
 
 [⚡️**Project:** Please add award levels below:]
 
@@ -40,6 +35,11 @@ Ultimately, when we launch the bug bounty, this repo will be made public and wil
 All web/app bug reports must include a PoC with an end-effect impacting an asset in scope in order to be considered for a reward. Explanations and statements are not accepted as PoC and code are required. An invoice is required for the payment to be made.
 
 
+**Quick Links:**
+- [Judging for C4 Bug Bounties](https://docs.code4rena.com/awarding/judging-criteria/bounty-judging)
+- [Criteria for C4 Bug Bounties](https://docs.code4rena.com/awarding/judging-criteria/bounty-criteria)
+
+
 ## Background on Moonwell
 
 Moonwell is an open lending, borrowing, and decentralized finance protocol built on Base, Optimism, Moonbeam and Moonriver. Moonwell's multichain design brings the world onchain with simple, yet powerful financial tools. This bug bounty program is focused on their smart contracts, website and app with a focus on preventing:
@@ -50,8 +50,6 @@ Moonwell is an open lending, borrowing, and decentralized finance protocol built
 - Social media administrative control breaches
 
 ### Further Technical Resources & Links
-
-[⚡️ **Project**: Please fill out the following information] 
 
 - **Moonwell Docs**: Our system documentation, subject to change. [Link](https://docs.moonwell.fi/moonwell)
 - **Moonwell Previous Audits:** Our previous audits - [Link](https://docs.moonwell.fi/moonwell/protocol-information/audits )
@@ -84,7 +82,7 @@ Only the following impacts are accepted within this bug bounty program. All othe
 
 Rewards for critical smart contract vulnerabilities are further capped at 10% of economic damage, with the main consideration being the funds affected in addition to PR and brand considerations, at the discretion of the team. However, there is a minimum reward of USD $100,000 for Critical bug reports. 
 
-Payouts are handled by the Moonwell team directly and are denominated in USD. At the team's discretion, payouts will be made in USDC or USDT. 
+Payouts are handled by the Moonwell team directly and are denominated in USD. Payouts will be made in USDC or USDT at the team's discretion. 
 
 | Contract | 
 | ----------- | 
@@ -269,6 +267,6 @@ The following activities are prohibited by this bug bounty program:
 
 
 ### Miscellaneous
-The Moonwell Foundation requires KYC and a sanctions screening to be completed by all researchers submitting a report before a bounty can be paid.
+The Moonwell Foundation requires all researchers submitting a report to complete KYC and a sanctions screening before a bounty can be paid.
 
-Current and past contractors or employees of Lunar Labs, Solidity Labs and Moonwell Foundation are not eligible for any rewards from this bug bounty program.
+Current and past contractors or employees of Lunar Labs, Solidity Labs, and Moonwell Foundation are not eligible for any rewards from this bug bounty program.
