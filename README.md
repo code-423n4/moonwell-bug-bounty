@@ -11,7 +11,7 @@ Ultimately, when we launch the bug bounty, this repo will be made public and wil
 
 **Action item for sponsors:**
 
-- [ ] Modify the contents of this README.md file. Describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing.
+- [X] Modify the contents of this README.md file. Describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing.
 
 # [Moonwell] Bug Bounty
 
@@ -62,7 +62,7 @@ Moonwell is an open lending, borrowing, and decentralized finance protocol built
 [⚡️ **Project**: Please insert any valid information around scope and severity criterias here]
 
 **Websites and Applications**
-- Domain takeover for moonwell.fi or app.moonwell.fi Subdomain takeover 
+- Domain takeover for moonwell.fi 
 
 The payout for smart contract vulnerabilities depends on the amount of funds at risk due to the vulnerability. This, will be determined by the maximum value of funds at risk in the impacted contract(s) at the time of report submission
 
@@ -263,8 +263,7 @@ The following activities are prohibited by this bug bounty program:
 
 ### Trusted Roles
 
-[⚡️ **Project**: Please explain your protocol's trusted roles.]
-
+The only trusted roles on Moonwell smart contracts are for the governor or DAO (admin/owner), pause guardian roles for the Moonwell security council, and a Governance guardian role that can pause governance in the event of a bridge compromise.
 
 ### Miscellaneous
 The Moonwell Foundation requires all researchers submitting a report to complete KYC and a sanctions screening before a bounty can be paid.
