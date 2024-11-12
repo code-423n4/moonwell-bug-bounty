@@ -1,6 +1,4 @@
-# Welcome to your bounty repo
-
-# [Moonwell] Bug Bounty
+# Welcome to Moonwell's bug bounty repo
 
 **Smart Contracts:**
 
