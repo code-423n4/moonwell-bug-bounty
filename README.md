@@ -1,21 +1,6 @@
 # Welcome to your bounty repo
 
-This file contains information around how to set-up your README.md and prepare for our collaboration.
-
-**Bug Bounties use two repos**:
-
-- a bug bounty repo (this one), which is used for scoping your bug bounty and for providing information to wardens
-- a submissions repo, where issues are submitted
-
-Ultimately, when we launch the bug bounty, this repo will be made public and will contain links to the in-scope files to be reviewed and all the information needed for bounty participants.
-
-**Action item for sponsors:**
-
-- [X] Modify the contents of this README.md file. Describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing.
-
 # [Moonwell] Bug Bounty
-
-[⚡️**Project:** Please add award levels below:]
 
 **Smart Contracts:**
 
@@ -34,11 +19,9 @@ Ultimately, when we launch the bug bounty, this repo will be made public and wil
 
 All web/app bug reports must include a PoC with an end-effect impacting an asset in scope in order to be considered for a reward. Explanations and statements are not accepted as PoC and code are required. An invoice is required for the payment to be made.
 
-
 **Quick Links:**
 - [Judging for C4 Bug Bounties](https://docs.code4rena.com/awarding/judging-criteria/bounty-judging)
 - [Criteria for C4 Bug Bounties](https://docs.code4rena.com/awarding/judging-criteria/bounty-criteria)
-
 
 ## Background on Moonwell
 
@@ -59,8 +42,6 @@ Moonwell is an open lending, borrowing, and decentralized finance protocol built
 
 # Scope & Severity Criteria
 
-[⚡️ **Project**: Please insert any valid information around scope and severity criterias here]
-
 **Websites and Applications**
 - Domain takeover for moonwell.fi 
 
@@ -77,8 +58,6 @@ The following ratio will apply to the smart contract vulnerabilities payouts:
 Only the following impacts are accepted within this bug bounty program. All other impacts are not considered as in-scope, even if they affect something in the assets in scope table.
 
 ## Smart Contracts in Scope
-
-[⚡️ **Project**: Please fill in the Source and any scoping information that you deem necessary. In case you need more than one table, please copy the existing and multiply as needed]
 
 Rewards for critical smart contract vulnerabilities are further capped at 10% of economic damage, with the main consideration being the funds affected in addition to PR and brand considerations, at the discretion of the team. However, there is a minimum reward of USD $100,000 for Critical bug reports. 
 
@@ -214,7 +193,6 @@ vote can pass.
 - No bounties will be paid for issues that arise from a governor turning malicious. Instead, the researcher must demonstrate how the code is vulnerable without using known issues and provide a working PoC of the exploit to demonstrate this vulnerability.
 - Temporal Governor on Base cannot receive raw ether as it has no payable fallback function. This means reserves cannot be sent to it from the ETH market. This is a known issue.
 
-
 ### Previous Audits
 
 All issues reported in past audits are out of scope and are not eligible for a reward https://docs.moonwell.fi/moonwell/protocol-information/audits.
@@ -230,7 +208,6 @@ The following vulnerabilities are excluded from the rewards for this bug bounty 
 - Attacks requiring access to leaked keys/credentials
 - Attacks requiring access to privileged addresses (governance, strategist)
 - 3rd party services (AWS, Datadog, etc)
-
 
 **Websites and Apps**
 
