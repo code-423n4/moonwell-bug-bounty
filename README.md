@@ -4,16 +4,16 @@
 
 | Risk Score |  Payout |
 |------------|---------|
-| Critical | Up to USD $250 000 |
-| High| USD $15 000 - $20 000 |
-| Medium | USD $1,000 - $5,000 Gratuity range|
+| Critical | Up to USD $250,000 |
+| High| USD &#36;15,000 - &#36;20,000 |
+| Medium | USD &#36;1,000 - &#36;5,000 Gratuity range|
 
 **Website & Applications**
 
 | Risk Score |  Payout |
 |------------|---------|
-| Critical | Up to USD $25 000 |
-| High| USD $10 000            |
+| Critical | Up to USD $25,000 |
+| High| USD $10,000            |
 
 All web/app bug reports must include a PoC with an end-effect impacting an asset in scope in order to be considered for a reward. Explanations and statements are not accepted as PoC and code are required. An invoice is required for the payment to be made.
 
