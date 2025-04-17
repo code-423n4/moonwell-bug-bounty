@@ -1,4 +1,7 @@
-# Welcome to Moonwell's bug bounty repo
+# Moonwell Bug Bounty Details
+
+- [Read our guidelines for more details](https://docs.code4rena.com/bounties)
+- Submit findings [using the C4 form](https://code4rena.com/bounties/moonwell/submit)
 
 **Smart Contracts:**
 
