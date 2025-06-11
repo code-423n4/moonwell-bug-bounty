@@ -3,6 +3,7 @@
 - [Read our guidelines for more details](https://docs.code4rena.com/bounties)
 - Submit findings [using the C4 form](https://code4rena.com/bounties/moonwell/submit)
 
+
 **Smart Contracts:**
 
 | Risk Score |  Payout |
@@ -158,6 +159,13 @@ Payouts are handled by the Moonwell team directly and are denominated in USD. Pa
 | [Smart Contract - Ecosystem Reserve](https://optimistic.etherscan.io/address/0x966450Ee0757846963F17f7978a8A906e078EF4b) |
 | [Smart Contract - Ecosystem Reserve Controller](https://optimistic.etherscan.io/address/0x1D776f9dc5fb96a2B60862973d90418d684dEE1e) |
 | [Smart Contract - stkWELL](https://optimistic.etherscan.io/address/0xfB26A4947A38cb53e2D083c6490060CCCE7438c5) |
+| [Smart Contract - USDC Strategy Factory](https://basescan.org/address/0x5967ea71cC65d610dc6999d7dF62bfa512e62D07) | 
+| [Smart Contract - Mamo Strategy Registry](https://basescan.org/address/0x46a5624C2ba92c08aBA4B206297052EDf14baa92) |
+| [Smart Contract - ERC20 Moonwell Market and Morpho Vault Strategy](https://basescan.org/address/0x5fAB373f43079CE488C2b8579751791982C03A35) |
+| [Smart Contract - Slippage Price Checker](https://basescan.org/address/0x5A8F10be44E25Bb21492C5f46DA94cDb1f0b2fF6) |
+| [Smart Contract - cbBTC Strategy Factory](https://basescan.org/address/0xE23c8E37F256Ba5783351CBb7B6673FE68248712) |
+
+Source code for the above-listed contracts is available in [Moonwell's public Github repositories](https://github.com/moonwell-fi).
 
 ## Out-of-Scope
 
