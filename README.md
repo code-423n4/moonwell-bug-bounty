@@ -8,7 +8,7 @@
 
 | Risk Score |  Payout |
 |------------|---------|
-| Critical | Up to USD $250,000 |
+| Critical | Up to USD &#36;250,000 |
 | High| USD &#36;15,000 - &#36;20,000 |
 | Medium | USD &#36;1,000 - &#36;5,000 Gratuity range|
 
@@ -16,8 +16,8 @@
 
 | Risk Score |  Payout |
 |------------|---------|
-| Critical | Up to USD $25,000 |
-| High| USD $10,000            |
+| Critical | Up to USD &#36;25,000 |
+| High | USD &#36;10,000           |
 
 All web/app bug reports must include a PoC with an end-effect impacting an asset in scope in order to be considered for a reward. Explanations and statements are not accepted as PoC and code are required. An invoice is required for the payment to be made.
 
@@ -51,11 +51,11 @@ The payout for smart contract vulnerabilities depends on the amount of funds at 
 
 The following ratio will apply to the smart contract vulnerabilities payouts:
 
-- Less than $5,000,000 - 10% of bounty for that category
-- Between $5,000,000 and $10,000,000 - 25%
-- Between $10,000,000 and $50,000,000 - 50%
-- Between $50,000,000 and $250,000,000 - 75%
-- Above $250,000,000 - 100%
+- Less than &#36;5,000,000 - 10% of bounty for that category
+- Between &#36;5,000,000 and &#36;10,000,000 - 25%
+- Between &#36;10,000,000 and &#36;50,000,000 - 50%
+- Between &#36;50,000,000 and &#36;250,000,000 - 75%
+- Above &#36;250,000,000 - 100%
 
 Only the following impacts are accepted within this bug bounty program. All other impacts are not considered as in-scope, even if they affect something in the assets in scope table.
 
