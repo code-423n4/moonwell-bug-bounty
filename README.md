@@ -175,6 +175,7 @@ Bug reports covering previously-discovered bugs (listed below) are not eligible 
 
 The following are known issues and therefore are out of scope:
 
+- [Bug in Base Safety Module allows some users to claim the full reward budget from MIP-X28](https://forum.moonwell.fi/t/pre-bug-remediation-rewards-for-the-base-safety-module/1859/1)
 - Borrowing rewards for markets where a reward speed is not set do not accrue without a user calling claim (or someone calling claimBehalf).
 - When setting reward speed = 0 and turning it back on for a market, rewards will accrue as if the new rate was always on.
 - Assets which are supplied which a user hasn’t called ‘enterMarkets’ for can still be seized. This is working as designed.
