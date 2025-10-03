@@ -8,16 +8,16 @@
 
 | Risk Score |  Payout |
 |------------|---------|
-| Critical | Up to USD &#36;250,000 |
-| High| USD &#36;15,000 - &#36;20,000 |
-| Medium | USD &#36;1,000 - &#36;5,000 Gratuity range|
+| Critical | Up to USDC &#36;250,000 |
+| High| USDC &#36;15,000 - &#36;20,000 |
+| Medium | USDC &#36;1,000 - &#36;5,000 Gratuity range|
 
 **Website & Applications**
 
 | Risk Score |  Payout |
 |------------|---------|
-| Critical | Up to USD &#36;25,000 |
-| High | USD &#36;10,000           |
+| Critical | Up to USDC &#36;25,000 |
+| High | USDC &#36;10,000           |
 
 All web/app bug reports must include a PoC with an end-effect impacting an asset in scope in order to be considered for a reward. Explanations and statements are not accepted as PoC and code are required. An invoice is required for the payment to be made.
 
@@ -61,9 +61,9 @@ Only the following impacts are accepted within this bug bounty program. All othe
 
 ## Smart Contracts in Scope
 
-Rewards for critical smart contract vulnerabilities are further capped at 10% of economic damage, with the main consideration being the funds affected in addition to PR and brand considerations, at the discretion of the team. However, there is a minimum reward of USD $100,000 for Critical bug reports. 
+Rewards for critical smart contract vulnerabilities are further capped at 10% of economic damage, with the main consideration being the funds affected in addition to PR and brand considerations, at the discretion of the team. However, there is a minimum reward of USDC $100,000 for Critical bug reports. 
 
-Payouts are handled by the Moonwell team directly and are denominated in USD. Payouts will be made in USDC or USDT at the team's discretion. 
+Payouts are handled by the Moonwell team directly and are denominated in USDC. Payouts will be made in USDC or USDT at the team's discretion. 
 
 | Contract | 
 | ----------- | 
@@ -186,7 +186,7 @@ The following are known issues and therefore are out of scope:
 vote can pass.
 - Setting too high of a quorum also means that a proposal is unlikely to ever be able to pass. This is because the system will not be able to reach quorum, and all proposals will go to the `Defeated` state.
 - Gas limit can be updated through a governance proposal, and if an external chain has their opcodes repriced higher, and the governance contract does not update its gas limit, then the system can be broken. This is because the system will not be able to process any transactions on the external chain, and the system will be unable to process any governance proposals. To mitigate this, the governor would use the break glass guardian to recover system ownership. Alternatively, a governance proposal could occur on Moonbeam to update the gas limit. However, users on Base would not be able to participate until this vote passed and the proposal was bridged to Base.
-- Because thethis governance system straddles threetwo chains, it is important that the timestamps on allboth chains are within one minute of each other to prevent issues around double voting. If an external chain has timestamps more than one minute behind Moonbeam, then a user could propose a change on Moonbeam, and then bridge their tokens to the external chain. This would mean once voting opened up, it would look like this user has double the voting power than they should have. This is because the system would register their votes on both Moonbeam and the external chain as valid.
+- Because the governance system straddles three chains, it is important that the timestamps on all chains are within one minute of each other to prevent issues around double voting. If an external chain has timestamps more than one minute behind Moonbeam, then a user could propose a change on Moonbeam, and then bridge their tokens to the external chain. This would mean once voting opened up, it would look like this user has double the voting power than they should have. This is because the system would register their votes on both Moonbeam and the external chain as valid.
 - if the Pause Guardian is malicious, they could wait for a governance proposal to grant another guardian the ability to pause the contract, then pause the contract, clearing this proposal from the active set of proposals. Then the community would need to wait 30 days before they could create, vote on and pass another proposal again.
 - if the vote collection contracts on other chains are malicious, they could prevent the Multichain Governor from executing proposals, or pass proposals that are failing by registering incorrect vote counts.
 - if Wormhole is paused or offline, the Multichain Governor will still be able to execute and pass proposals, however, users on other chains will not be able to submit or have their votes collected.
