@@ -12,14 +12,6 @@
 | High| USDC &#36;15,000 - &#36;20,000 |
 | Medium | USDC &#36;1,000 - &#36;5,000 Gratuity range|
 
-**Website & Applications**
-
-| Risk Score |  Payout |
-|------------|---------|
-| Critical | Up to USDC &#36;25,000 |
-| High | USDC &#36;10,000           |
-
-All web/app bug reports must include a PoC with an end-effect impacting an asset in scope in order to be considered for a reward. Explanations and statements are not accepted as PoC and code are required. An invoice is required for the payment to be made.
 
 **Quick Links:**
 - [Judging for C4 Bug Bounties](https://docs.code4rena.com/awarding/judging-criteria/bounty-judging)
@@ -219,21 +211,6 @@ The following vulnerabilities are excluded from the rewards for this bug bounty 
 - Attacks requiring access to privileged addresses (governance, strategist)
 - 3rd party services (AWS, Datadog, etc)
 
-**Websites and Apps**
-
-- Theoretical vulnerabilities without any proof or demonstration
-- Captcha bypass using OCR
-- CSRF with no security impact (logout CSRF, change language, etc.)
-- Missing HTTP Security Headers (such as X-FRAME-OPTIONS) or cookie security flags (such as “httponly”)
-- Server-side information disclosure such as IPs, server names, and most stack traces
-- Vulnerabilities used to enumerate or confirm the existence of users or tenants
-- Vulnerabilities requiring unlikely user actions
-- URL Redirects (unless combined with another vulnerability to produce a more severe vulnerability)
-- Lack of SSL/TLS best practices
-- DDoS vulnerabilities
-- Attacks requiring privileged access from within the organization
-- Feature requests
-- Best practices
 
 The following activities are prohibited by this bug bounty program:
 
