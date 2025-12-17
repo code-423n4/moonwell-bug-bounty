@@ -12,14 +12,6 @@
 | High| USDC &#36;15,000 - &#36;20,000 |
 | Medium | USDC &#36;1,000 - &#36;5,000 Gratuity range|
 
-**Website & Applications**
-
-| Risk Score |  Payout |
-|------------|---------|
-| Critical | Up to USDC &#36;25,000 |
-| High | USDC &#36;10,000           |
-
-All web/app bug reports must include a PoC with an end-effect impacting an asset in scope in order to be considered for a reward. Explanations and statements are not accepted as PoC and code are required. An invoice is required for the payment to be made.
 
 **Quick Links:**
 - [Judging for C4 Bug Bounties](https://docs.code4rena.com/awarding/judging-criteria/bounty-judging)
@@ -27,7 +19,7 @@ All web/app bug reports must include a PoC with an end-effect impacting an asset
 
 ## Background on Moonwell
 
-Moonwell is an open lending, borrowing, and decentralized finance protocol built on Base, Optimism, Moonbeam and Moonriver. Moonwell's multichain design brings the world onchain with simple, yet powerful financial tools. This bug bounty program is focused on their smart contracts, website and app with a focus on preventing:
+Moonwell is an open lending, borrowing, and decentralized finance protocol built on Base, Optimism, Moonbeam and Moonriver. Moonwell's multichain design brings the world onchain with simple, yet powerful financial tools. This bug bounty program is focused on their smart contracts with a focus on preventing:
 - Loss of protocol or user funds
 - Smart contract vulnerabilities
 - Denial of service issues
@@ -43,9 +35,6 @@ Moonwell is an open lending, borrowing, and decentralized finance protocol built
 - **Discord:** https://discord.gg/moonwellfii
 
 # Scope & Severity Criteria
-
-**Websites and Applications**
-- Domain takeover for moonwell.fi 
 
 The payout for smart contract vulnerabilities depends on the amount of funds at risk due to the vulnerability. This, will be determined by the maximum value of funds at risk in the impacted contract(s) at the time of report submission
 
@@ -132,7 +121,6 @@ Payouts are handled by the Moonwell team directly and are denominated in USDC. P
 | [Smart Contract - Wormhole Unwrapper Adapter](https://moonscan.io/address/0x85b6cb73b076309616dba529fa2b20e2a0a9eee9) |
 | [Smart Contract - Claims Proxy](https://moonriver.moonscan.io/address/0x8568A675384d761f36eC269D695d6Ce4423cfaB1) |
 | [Smart Contract - StakedGovToken](https://moonriver.moonscan.io/address/0xCd76e63f3AbFA864c53b4B98F57c1aA6539FDa3a) |
-| [Web/App](http://moonwell.fi) |
 | [Smart Contract - Governor](https://moonriver.moonscan.io/address/0x2BE2e230e89c59c8E20E633C524AD2De246e7370) | 
 | [Smart Contract - Timelock](https://moonriver.moonscan.io/address/0x04e6322D196E0E4cCBb2610dd8B8f2871E160bd7) |
 | [Smart Contract - Moonwell wrsETH](https://basescan.org/address/0xfC41B49d064Ac646015b459C522820DB9472F4B5) |
@@ -219,21 +207,6 @@ The following vulnerabilities are excluded from the rewards for this bug bounty 
 - Attacks requiring access to privileged addresses (governance, strategist)
 - 3rd party services (AWS, Datadog, etc)
 
-**Websites and Apps**
-
-- Theoretical vulnerabilities without any proof or demonstration
-- Captcha bypass using OCR
-- CSRF with no security impact (logout CSRF, change language, etc.)
-- Missing HTTP Security Headers (such as X-FRAME-OPTIONS) or cookie security flags (such as “httponly”)
-- Server-side information disclosure such as IPs, server names, and most stack traces
-- Vulnerabilities used to enumerate or confirm the existence of users or tenants
-- Vulnerabilities requiring unlikely user actions
-- URL Redirects (unless combined with another vulnerability to produce a more severe vulnerability)
-- Lack of SSL/TLS best practices
-- DDoS vulnerabilities
-- Attacks requiring privileged access from within the organization
-- Feature requests
-- Best practices
 
 The following activities are prohibited by this bug bounty program:
 
