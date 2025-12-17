@@ -19,7 +19,7 @@
 
 ## Background on Moonwell
 
-Moonwell is an open lending, borrowing, and decentralized finance protocol built on Base, Optimism, Moonbeam and Moonriver. Moonwell's multichain design brings the world onchain with simple, yet powerful financial tools. This bug bounty program is focused on their smart contracts, website and app with a focus on preventing:
+Moonwell is an open lending, borrowing, and decentralized finance protocol built on Base, Optimism, Moonbeam and Moonriver. Moonwell's multichain design brings the world onchain with simple, yet powerful financial tools. This bug bounty program is focused on their smart contracts with a focus on preventing:
 - Loss of protocol or user funds
 - Smart contract vulnerabilities
 - Denial of service issues
@@ -35,9 +35,6 @@ Moonwell is an open lending, borrowing, and decentralized finance protocol built
 - **Discord:** https://discord.gg/moonwellfii
 
 # Scope & Severity Criteria
-
-**Websites and Applications**
-- Domain takeover for moonwell.fi 
 
 The payout for smart contract vulnerabilities depends on the amount of funds at risk due to the vulnerability. This, will be determined by the maximum value of funds at risk in the impacted contract(s) at the time of report submission
 
@@ -124,7 +121,6 @@ Payouts are handled by the Moonwell team directly and are denominated in USDC. P
 | [Smart Contract - Wormhole Unwrapper Adapter](https://moonscan.io/address/0x85b6cb73b076309616dba529fa2b20e2a0a9eee9) |
 | [Smart Contract - Claims Proxy](https://moonriver.moonscan.io/address/0x8568A675384d761f36eC269D695d6Ce4423cfaB1) |
 | [Smart Contract - StakedGovToken](https://moonriver.moonscan.io/address/0xCd76e63f3AbFA864c53b4B98F57c1aA6539FDa3a) |
-| [Web/App](http://moonwell.fi) |
 | [Smart Contract - Governor](https://moonriver.moonscan.io/address/0x2BE2e230e89c59c8E20E633C524AD2De246e7370) | 
 | [Smart Contract - Timelock](https://moonriver.moonscan.io/address/0x04e6322D196E0E4cCBb2610dd8B8f2871E160bd7) |
 | [Smart Contract - Moonwell wrsETH](https://basescan.org/address/0xfC41B49d064Ac646015b459C522820DB9472F4B5) |
