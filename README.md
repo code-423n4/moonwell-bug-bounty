@@ -229,3 +229,5 @@ The only trusted roles on Moonwell smart contracts are for the governor or DAO (
 The Moonwell Foundation requires all researchers submitting a report to complete KYC and a sanctions screening before a bounty can be paid.
 
 Current and past contractors or employees of Lunar Labs, Solidity Labs, and Moonwell Foundation are not eligible for any rewards from this bug bounty program.
+
+Reward amounts may be displayed using a dollar sign for simplicity, but the underlying valuation is based on a USD-pegged digital asset such as USDC. Because the displayed figure reflects a USD reference value rather than a fiat currency payment, the final amount delivered in the corresponding token may differ slightly at the time of payout.
