@@ -161,6 +161,8 @@ Source code for the above-listed contracts is available in [Moonwell's public Gi
 
 Bug reports covering previously-discovered bugs (listed below) are not eligible for a reward within this program. This includes known issues that the project is aware of but has consciously decided not to “fix”, necessary code changes, or any implemented operational mitigating procedures that can lessen potential risk. Every issue opened in the repo, closed PRs, previous contests and audits are out of scope.
 
+All issues submitted by wardens to the Moonwell bounty will be added to [this repo](https://github.com/code-423n4/moonwell-bug-bounty/issues?q=is%3Aissue%20state%3Aclosed) once they have been reviewed by the sponsors. These are considered known issues and are out-of-scope for bounty rewards.
+
 The following are known issues and therefore are out of scope:
 
 - [Bug in Base Safety Module allows some users to claim the full reward budget from MIP-X28](https://forum.moonwell.fi/t/pre-bug-remediation-rewards-for-the-base-safety-module/1859/1)
