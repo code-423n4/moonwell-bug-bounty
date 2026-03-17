@@ -12,6 +12,7 @@
 | High| USDC &#36;15,000 - &#36;20,000 |
 | Medium | USDC &#36;1,000 - &#36;5,000 Gratuity range|
 
+**KYC required for payout:** If your bounty submission meets the criteria for a reward, you must complete [Certification (ID verification)](https://docs.code4rena.com/roles/certification-id-verification).
 
 **Quick Links:**
 - [Judging for C4 Bug Bounties](https://docs.code4rena.com/awarding/judging-criteria/bounty-judging)
